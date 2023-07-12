@@ -6,7 +6,7 @@ import {
   ContentText,
 } from "./Adopt_Style";
 
-const videoUrl = process.env.PUBLIC_URL + "/videos/07-09 도와줄개.mp4";
+const videoUrl = process.env.PUBLIC_URL + "/videos/dog-to-help.mp4";
 
 function Adopt() {
   return (

@@ -8,7 +8,7 @@ function Sidebar() {
         <IconImage src="instargram.png" alt="Instagram" />
       </IconLink>
       <IconLink href="https://cafe.naver.com/banham2020">
-        <IconImage src="네이버_카페_로고.png" alt="Naver Cafe" />
+        <IconImage src="Naver.png" alt="Naver Cafe" />
       </IconLink>
     </SidebarWrapper>
   );

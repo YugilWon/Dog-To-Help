@@ -96,7 +96,7 @@ function SignUp() {
               {pw.length > 0 && (
                 <>
                   {pw.length < 8 ? (
-                    <VerifyMessage invalid>
+                    <VerifyMessage invalid="true">
                       비밀번호가 8자리 미만입니다.
                     </VerifyMessage>
                   ) : (
