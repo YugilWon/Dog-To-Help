@@ -4,15 +4,18 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  border-radius: 2%;
   justify-content: center;
   padding: 0 40px;
   margin: 0 auto;
   max-width: 1200px;
-  background-color: white;
+  background-color: beige;
 `;
 
 export const Card = styled.div`
   background-color: white;
+  margin-top: 50px;
+  left: 70px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -98,6 +101,7 @@ export const VideoWrapper = styled.div`
 export const CircularCard = styled(Card)`
   width: 200px;
   height: 200px;
+  /* background-size: cover; */
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -107,6 +111,19 @@ export const CircularCard = styled(Card)`
   }
 `;
 
+// export const CircularImageWrapper = styled(ImageWrapper)`
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 50%;
+//   background-size: cover;
+//   overflow: hidden;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   transform: scale(1.8);
+// `;
+
+// 우정님이 알려주신 부분 화질 깨짐 고쳐야함
 export const CircularImageWrapper = styled(ImageWrapper)`
   width: 100%;
   height: 100%;
@@ -115,10 +132,15 @@ export const CircularImageWrapper = styled(ImageWrapper)`
   display: flex;
   align-items: center;
   justify-content: center;
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 export const InfoContainer = styled.div`
-  margin-left: 50px;
+  margin-left: 270px;
   text-align: center;
 `;
 

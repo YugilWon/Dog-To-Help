@@ -42,7 +42,7 @@ function SignIn() {
       logoutTimeout = setTimeout(() => {
         LogoutBtnHandler();
         alert("세션이 만료되어 로그아웃되었습니다.");
-      }, 10000000); // 1000 = 1초
+      }, 600000); // 1000 = 1초
     }
 
     return () => {
@@ -155,8 +155,10 @@ function SignIn() {
                 </>
               )}
             </Form>
-            <Button onClick={LoginBtnHandler}>로그인</Button>
-            <Button onClick={getUserData}>사용자 데이터 가져오기</Button>
+            <div style={{ textAlign: "center" }}>
+              <Button onClick={LoginBtnHandler}>로그인</Button>
+              <Button onClick={getUserData}>사용자 데이터 가져오기</Button>
+            </div>
           </ModalContainerModal>
         </ModalContainer>
       )}

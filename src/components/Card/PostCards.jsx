@@ -90,7 +90,21 @@ function PostCards() {
 
   return (
     <>
-      <Button onClick={handleModalOpen3}>글쓰기</Button>
+      <button
+        onClick={handleModalOpen3}
+        style={{
+          background: "none",
+          border: "none",
+          padding: 0,
+          cursor: "pointer",
+        }}
+      >
+        <img
+          src={process.env.PUBLIC_URL + "/Write2.png"}
+          alt="Write"
+          style={{ width: "32px", height: "32px" }}
+        />
+      </button>
       {isModalOpen3 && (
         <ModalContainer className="Modal-Container">
           <ModalContainerModal

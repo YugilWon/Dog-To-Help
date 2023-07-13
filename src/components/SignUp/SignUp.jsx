@@ -106,7 +106,9 @@ function SignUp() {
                 </>
               )}
             </Form>
-            <Button onClick={SubmitBtnHandler}>회원가입</Button>
+            <div style={{ textAlign: "center" }}>
+              <Button onClick={SubmitBtnHandler}>회원가입</Button>
+            </div>
           </ModalContainerModal>
         </ModalContainer>
       )}

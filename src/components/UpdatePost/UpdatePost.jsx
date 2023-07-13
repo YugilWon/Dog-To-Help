@@ -90,10 +90,14 @@ function UpdatePost({ post, onUpdateButtonClickHandler }) {
 
   return (
     <>
-      <Button onClick={handleModalOpen4}>수정하기</Button>
+      <Button onClick={handleModalOpen4}>✏️</Button>
       {isModalOpen4 && (
         <ModalContainer className="Modal-Container">
-          <ModalContainerModal className="Modal-Container-Modal">
+          <ModalContainerModal
+            width="400px"
+            height="800px"
+            className="Modal-Container-Modal"
+          >
             <Button onClick={CancelBtnHandler}>X</Button>
             <FormContainer className="Post-Container">
               <Form className="Name-Form">

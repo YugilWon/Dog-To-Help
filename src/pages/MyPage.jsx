@@ -5,6 +5,11 @@ import { useQuery } from "react-query";
 import { getPosts } from "../api/posts";
 import { useCookies } from "react-cookie";
 import TopBar from "../components/TopBar/TopBar";
+import {
+  Image,
+  CircularImageWrapper,
+  CircularCard,
+} from "../components/Card/Card_Style";
 
 function MyPage() {
   const { isLoading, isError, data } = useQuery("Post", getPosts);
@@ -31,11 +36,14 @@ function MyPage() {
             key={post.id}
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            <Card>
-              <div>
-                <Title>{post.name}</Title>
-              </div>
-            </Card>
+            <CircularCard>
+              {post.imageUrl && (
+                <CircularImageWrapper>
+                  <Image src={post.imageUrl} alt="Post Image" />
+                </CircularImageWrapper>
+              )}
+            </CircularCard>
+            <Title style={{ marginTop: "25px" }}>{post.name}</Title>
           </Link>
         ))}
       </CardContainer>

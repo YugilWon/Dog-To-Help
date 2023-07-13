@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const SidebarWrapper = styled.div`
   position: fixed;
-  top: 50%;
-  right: 0;
-  height: 80px;
+  top: 40%;
+  right: 30px;
+  height: 110px;
   width: 25px;
-  background-color: green;
+  /* background-color: skyblue; */
   padding: 20px;
   z-index: 2;
 `;

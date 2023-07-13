@@ -4,10 +4,7 @@ import { useQuery } from "react-query";
 import { getPosts } from "../../api/posts";
 import {
   CardContainer,
-  Card,
-  Title,
   Image,
-  ImageWrapper,
   CircularCard,
   CircularImageWrapper,
   InfoContainer,

@@ -22,6 +22,10 @@ import {
   CautionWrapper,
   CommentContainer,
   CommentInput,
+  ButtonContainer,
+  CommentWrapper,
+  ButtonContainer2,
+  CommentText,
 } from "./DetailPage-styled/Detail-style";
 
 function DetailPage() {
@@ -78,6 +82,7 @@ function DetailPage() {
         id: uuid(),
         postId: id,
         comment: newComment,
+        userId,
       });
       fetchComments();
       setNewComment("");
@@ -116,33 +121,43 @@ function DetailPage() {
     }
   };
 
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onSaveComment();
+    }
+  };
+
   const filterdComment = comments.filter((item) => item.postId === id);
+  console.log(userId);
 
   return (
     <>
       <TopBar />
-      <Button onClick={() => onDeleteButtonClickHandler(post.id)}>
-        삭제하기
-      </Button>
-      <UpdatePost post={post} onUpdateButtonClickHandler={fetchPost} />
+
       <DetailContainer>
         <DetailCard>
+          <ButtonContainer>
+            <UpdatePost post={post} onUpdateButtonClickHandler={fetchPost} />
+            <Button onClick={() => onDeleteButtonClickHandler(post.id)}>
+              ❌
+            </Button>
+          </ButtonContainer>
           <SpeciesWrapper>
             <Title>{post.species}</Title>
           </SpeciesWrapper>
-          {post.videoUrl && (
-            <VideoWrapper>
-              <Video src={post.videoUrl} controls />
-            </VideoWrapper>
-          )}
-
           {post.imageUrl && (
             <ImageWrapper>
               <Image src={post.imageUrl} alt="Post Image" />
             </ImageWrapper>
           )}
+
+          {post.videoUrl && (
+            <VideoWrapper>
+              <Video src={post.videoUrl} controls />
+            </VideoWrapper>
+          )}
           <BodyWrapper>
-            <Title>우리 {post.name}는요!</Title>
+            <Title>우리 {post.name} 는(은)요!</Title>
             <br />
             <Body>{post.body}</Body>
             <br />
@@ -167,13 +182,24 @@ function DetailPage() {
                   </>
                 ) : (
                   <>
-                    {comment.comment}
-                    <Button onClick={() => CommentDeleteBtn(comment.id)}>
-                      삭제
-                    </Button>
-                    <Button onClick={() => CommentUpdateBtn(comment.id)}>
-                      수정
-                    </Button>
+                    <CommentWrapper>
+                      <CommentText>{comment.comment}</CommentText>
+                      {userId === comment.userId &&
+                        editingCommentId !== comment.id && (
+                          <ButtonContainer2>
+                            <Button
+                              onClick={() => CommentDeleteBtn(comment.id)}
+                            >
+                              ❌
+                            </Button>
+                            <Button
+                              onClick={() => CommentUpdateBtn(comment.id)}
+                            >
+                              ✏️
+                            </Button>
+                          </ButtonContainer2>
+                        )}
+                    </CommentWrapper>
                   </>
                 )}
               </div>
@@ -183,6 +209,7 @@ function DetailPage() {
               placeholder="댓글을 입력하세요"
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
+              onKeyDown={onKeyDown}
             />
             <Button onClick={onSaveComment}>댓글 추가</Button>
           </CommentContainer>
