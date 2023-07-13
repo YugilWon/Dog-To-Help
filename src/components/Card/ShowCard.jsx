@@ -6,7 +6,6 @@ import {
   CardContainer,
   Image,
   CircularCard,
-  CircularImageWrapper,
   InfoContainer,
   Name,
   Species,
@@ -85,11 +84,7 @@ function ShowCard() {
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <CircularCard ref={(el) => (cardRef.current[index] = el)}>
-              {post.imageUrl && (
-                <CircularImageWrapper>
-                  <Image src={post.imageUrl} alt="Post Image" />
-                </CircularImageWrapper>
-              )}
+              <Image src={post.imageUrl} alt="Post Image" />
             </CircularCard>
             <br />
             <InfoContainer>
@@ -98,6 +93,7 @@ function ShowCard() {
             </InfoContainer>
           </Link>
         ))}
+        <div id="test"></div>
       </CardContainer>
     </>
   );

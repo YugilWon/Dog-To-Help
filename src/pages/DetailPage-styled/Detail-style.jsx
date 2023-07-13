@@ -34,12 +34,6 @@ export const VideoWrapper = styled.div`
   position: relative;
   width: 100%;
   max-height: 500px;
-
-  &::after {
-    content: "";
-    display: block;
-    padding-bottom: 56.25%; /* 16:9 비율로 비디오 보존 */
-  }
 `;
 
 export const ImageWrapper = styled.div`

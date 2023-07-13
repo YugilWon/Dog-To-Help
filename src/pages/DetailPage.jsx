@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import api from "../axios/api";
 import { Button } from "../styled-components/Button/Button_Style";
 import TopBar from "../components/TopBar/TopBar";
-import { updateMetadata } from "firebase/storage";
 import { useCookies } from "react-cookie";
 import UpdatePost from "../components/UpdatePost/UpdatePost";
 import { useNavigate } from "react-router-dom";
@@ -42,16 +41,13 @@ function DetailPage() {
 
   const fetchPost = async () => {
     const { data } = await api.get(`/Post/${id}`);
-    console.log(data);
 
     setPost(data);
   };
 
   const fetchComments = async () => {
-    console.log("코멘트 불러올때 id의 값", id);
     const response = await api.get(`/Comments`);
     const commentData = response.data;
-    console.log(commentData);
     setComments(commentData);
   };
 
@@ -128,7 +124,6 @@ function DetailPage() {
   };
 
   const filterdComment = comments.filter((item) => item.postId === id);
-  console.log(userId);
 
   return (
     <>

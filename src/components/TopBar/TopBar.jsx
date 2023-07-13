@@ -4,10 +4,10 @@ import { TopBarWrapper, Title, ButtonWrapper } from "./TopBar_Style";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
 
-function TopBar() {
+function TopBar({ mypage }) {
   return (
     <>
-      <TopBarWrapper>
+      <TopBarWrapper page={mypage ? mypage : ""}>
         <Title>
           <Link
             to="/"

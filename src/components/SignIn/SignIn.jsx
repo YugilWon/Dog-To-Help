@@ -56,6 +56,11 @@ function SignIn() {
       return;
     }
 
+    if (pw.length !== 8) {
+      alert("패스워드가 8자 미만입니다");
+      return;
+    }
+
     try {
       const response = await axios.post(`http://3.38.191.164/login`, {
         id,
@@ -65,13 +70,13 @@ function SignIn() {
         path: `http://3.38.191.164/login`,
       });
       setCookie("Id", id);
-
       handleMyPageClick();
+      setIsModalOpen1(false);
     } catch (error) {
       console.error("로그인 요청 에러:", error);
       if (error.response.status === 401) {
-        // 인증 실패 처리
         const errorMessage = error.response.data.message;
+
         if (errorMessage === "사용자를 찾을 수 없습니다.") {
           alert("존재하지 않는 ID입니다");
         } else if (errorMessage === "잘못된 비밀번호입니다.") {
@@ -88,7 +93,6 @@ function SignIn() {
           authorization: `Bearer ${cookies.Token}`,
         },
       });
-      console.log("요청 전달됨", response);
     } catch (error) {
       console.error("사용자 데이터 요청 에러:", error);
     }
@@ -145,7 +149,7 @@ function SignIn() {
               {pw.length > 0 && (
                 <>
                   {pw.length < 8 ? (
-                    <VerifyMessage invalid>
+                    <VerifyMessage invalid="true">
                       비밀번호가 8자리 미만입니다.
                     </VerifyMessage>
                   ) : (

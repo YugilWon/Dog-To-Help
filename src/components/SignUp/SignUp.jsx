@@ -46,8 +46,13 @@ function SignUp() {
         password: pw,
       };
 
+      if (pw.length !== 8) {
+        alert("패스워드가 8자 미만입니다");
+        return;
+      }
+
       const response = await server.post("/register", requestBody);
-      console.log("회원가입 데이터", response.data);
+
       setIsModalOpen2(false);
     } catch (error) {
       if (error.response && error.response.status === 401) {

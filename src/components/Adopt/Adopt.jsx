@@ -8,7 +8,7 @@ import {
 } from "./Adopt_Style";
 import { Button } from "../../styled-components/Button/Button_Style";
 
-const videoUrl = process.env.PUBLIC_URL + "/videos/dog-to-help2.mp4";
+const videoUrl = process.env.PUBLIC_URL + "/videos/dog-to-help.mp4";
 
 function Adopt() {
   const contentRef = useRef(null);

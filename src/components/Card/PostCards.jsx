@@ -97,12 +97,18 @@ function PostCards() {
           border: "none",
           padding: 0,
           cursor: "pointer",
+          marginBottom: "100px",
         }}
       >
         <img
-          src={process.env.PUBLIC_URL + "/Write2.png"}
+          src={process.env.PUBLIC_URL + "/animation-write.gif"}
           alt="Write"
-          style={{ width: "32px", height: "32px" }}
+          style={{
+            width: "100px",
+            height: "100px",
+            position: "relative",
+            left: "-40px",
+          }}
         />
       </button>
       {isModalOpen3 && (
@@ -155,7 +161,9 @@ function PostCards() {
               </Form>
               <FileUpload setDownloadURL={setImgDownloadURL} />
               <FileUpload setDownloadURL={setVideoDownloadURL} />
-              <Button onClick={PostBtnHandler}>글올리기</Button>
+              <Button onClick={PostBtnHandler} style={{ marginTop: "20px" }}>
+                글올리기
+              </Button>
             </FormContainer>
           </ModalContainerModal>
         </ModalContainer>

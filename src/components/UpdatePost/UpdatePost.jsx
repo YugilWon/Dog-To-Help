@@ -50,9 +50,6 @@ function UpdatePost({ post, onUpdateButtonClickHandler }) {
 
   const UpdateBtnHandler = async () => {
     try {
-      console.log("userId:", userId);
-      console.log("post.userId:", post.userId);
-
       if (userId !== post.userId) {
         alert("해당 글을 수정할 수 있는 권한이 없습니다!");
         return;

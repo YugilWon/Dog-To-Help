@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const TopBarWrapper = styled.div`
-  /* background-color: skyblue; */
-  background: linear-gradient(to bottom, skyblue, #f2ea9b);
+  background: ${(props) =>
+    props.page === "mypage"
+      ? "linear-gradient(to bottom, skyblue, beige)"
+      : "linear-gradient(to bottom, skyblue, #f2ea9b)"};
   width: 100%;
   height: 100px;
   display: flex;

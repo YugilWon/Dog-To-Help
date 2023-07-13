@@ -5,11 +5,7 @@ import { useQuery } from "react-query";
 import { getPosts } from "../api/posts";
 import { useCookies } from "react-cookie";
 import TopBar from "../components/TopBar/TopBar";
-import {
-  Image,
-  CircularImageWrapper,
-  CircularCard,
-} from "../components/Card/Card_Style";
+import { Image, CircularCard } from "../components/Card/Card_Style";
 
 function MyPage() {
   const { isLoading, isError, data } = useQuery("Post", getPosts);
@@ -27,8 +23,7 @@ function MyPage() {
 
   return (
     <>
-      <TopBar />
-      <br />
+      <TopBar mypage="mypage" />
       <CardContainer>
         {userPosts.map((post) => (
           <Link
@@ -37,11 +32,7 @@ function MyPage() {
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <CircularCard>
-              {post.imageUrl && (
-                <CircularImageWrapper>
-                  <Image src={post.imageUrl} alt="Post Image" />
-                </CircularImageWrapper>
-              )}
+              <Image src={post.imageUrl} alt="Post Image" />
             </CircularCard>
             <Title style={{ marginTop: "25px" }}>{post.name}</Title>
           </Link>
