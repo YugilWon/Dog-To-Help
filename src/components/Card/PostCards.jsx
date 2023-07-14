@@ -115,7 +115,7 @@ function PostCards() {
         <ModalContainer className="Modal-Container">
           <ModalContainerModal
             width="550px"
-            height="830px "
+            height="700px "
             className="Modal-Container-Modal"
           >
             <Button onClick={CancelBtnHandler}>X</Button>

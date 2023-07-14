@@ -3,12 +3,9 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-gap: 20px; */
-  /* border-radius: 2%; */
   justify-content: center;
   padding: 80px 40px;
   margin: 0 auto;
-  /* max-width: 1200px; */
   background-color: beige;
 `;
 
@@ -62,7 +59,7 @@ export const FormContainer = styled.div`
 export const Textarea = styled.textarea`
   padding: 15px;
   width: 300px;
-  height: 200px;
+  height: 150px;
   border-radius: 4px;
   border: 1px solid #ccc;
   max-width: 100%;
